@@ -13,7 +13,7 @@
     <artifactId>spring-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-demo</name>
-    <description>spring-redis、cache、秒杀一致性例子</description>
+    <description>spring 例子</description>
     <packaging>pom</packaging>
 
     <modules>

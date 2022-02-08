@@ -12,7 +12,7 @@
     <artifactId>springboot-redis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-redis</name>
-    <description>Demo project for Spring Boot</description>
+    <description>spring-redis、cache、秒杀一致性例子</description>
     <properties>
         <java.version>1.8</java.version>
         <redis.client.versin>2.9.0</redis.client.versin>
