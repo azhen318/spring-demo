@@ -5,20 +5,22 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.concurrent.TimeUnit;
+
 @Component
 public class JedisOperator {
 
     @Autowired
     private JedisPool jedisPool;
 
-    public boolean setnx(String key, String val) {
+    public boolean setnx(String key, String val,int expireTime) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             if (jedis == null) {
                 return false;
             }
-            return jedis.set(key, val, "NX", "PX", 1000 * 60).
+            return jedis.set(key, val, "NX", "PX", expireTime).
                     equalsIgnoreCase("ok");
         } catch (Exception ex) {
         } finally {
