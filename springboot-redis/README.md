@@ -12,6 +12,12 @@
   >jedis.set(key, val, "NX", "PX", 1000 * 60) 分布式锁  
   > NX:存在即插入  
   > PX:设置失效时间
+  > 
+### redisson分布式锁
+* redissonClient配置
+* redissonClient重入锁实现分布式锁
+* redissonClient[参考地址:](https://github.com/redisson/redisson/wiki)
+
 ## ManageCache
 
 * 配置类 CacheCfg
