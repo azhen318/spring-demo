@@ -1,8 +1,8 @@
 package com.example.springcontroller.controller;
 
-import com.example.springcontroller.bo.ResultMsg;
-import com.example.springcontroller.bo.Teacher;
-import com.example.springcontroller.enums.HttpResultStatus;
+import com.example.springboot.model.bo.ResultMsg;
+import com.example.springboot.model.bo.Teacher;
+import com.example.springboot.model.enums.HttpResultStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.MediaType;

@@ -1,6 +1,6 @@
-package com.example.springcontroller.bo;
+package com.example.springboot.model.bo;
 
-import com.example.springcontroller.enums.HttpResultStatus;
+import com.example.springboot.model.enums.HttpResultStatus;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;

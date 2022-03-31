@@ -1,4 +1,4 @@
-package com.example.springcontroller.enums;
+package com.example.springboot.model.enums;
 
 public enum HttpResultStatus {
     S200("200","成功"),

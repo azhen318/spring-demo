@@ -1,4 +1,4 @@
-package com.example.springbootredis.dto.vo;
+package com.example.springboot.model.bo;
 
 import lombok.Getter;
 import lombok.Setter;

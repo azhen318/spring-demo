@@ -1,6 +1,6 @@
 package com.example.springbootredis.controller;
 
-import com.example.springbootredis.dto.vo.Student;
+import com.example.springboot.model.vo.Student;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

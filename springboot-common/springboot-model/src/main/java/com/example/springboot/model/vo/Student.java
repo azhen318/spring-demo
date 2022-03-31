@@ -1,4 +1,4 @@
-package com.example.springbootredis.dto.vo;
+package com.example.springboot.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
