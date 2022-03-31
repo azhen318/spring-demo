@@ -1,6 +1,6 @@
-#说明
+# 说明
 
-##redis
+## redis
 
 ### springboot redis使用
 
@@ -18,7 +18,7 @@
 * redissonClient重入锁实现分布式锁
 * redissonClient[参考地址:](https://github.com/redisson/redisson/wiki)
 
-###Semaphor信号量
+### Semaphor信号量
 *使用场景：
  >资源有限，请求者同时只能定量；  
  >如：一个机房只有三台打印机，只能同时三个人打印 
