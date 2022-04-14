@@ -4,8 +4,10 @@
 
 部分案例有参考其他项目
 
+演示给屈超凡看看
 
-[control开发](./spring-controller/README.md)
+
+[CONTROL开发](./spring-controller/README.md)
 
 [REDIS并发缓存](./springboot-redis/README.md)
 
