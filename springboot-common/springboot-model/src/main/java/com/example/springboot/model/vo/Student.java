@@ -14,4 +14,12 @@ public class Student {
 
     private String name;
 
+    private Integer age;
+
+
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf Demo</title>
+</head>
+<body>
+    <h1 th:text="${host}">hello thymeleaf</h1>
+    <a th:href="${host}">说明</a>
+
+    <table>
+       <tr>
+           <td>姓名</td>
+           <td>年龄</td>
+       </tr>
+        <tr th:each="t : ${stuent}">
+            <td th:text="${t.name}">张三</td>
+            <td th:text="${t.age}">15</td>
+        </tr>
+    </table>
+</body>
+</html>
