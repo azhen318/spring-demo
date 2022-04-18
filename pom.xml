@@ -23,6 +23,8 @@
         <module>spring-controller</module>
         <module>springboot-jta</module>
         <module>springboot-common</module>
+        <module>springboot-thymeleaf</module>
+        <module>springboot-freemarker</module>
     </modules>
 
     <properties>
