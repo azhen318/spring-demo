@@ -1,0 +1,33 @@
+
+#elasticjob:
+#  reg-center:
+#    server-lists: localhost:2181
+#    namespace: azhen
+#  jobs:
+#    my-simple-job:
+#      elastic-job-class: com.example.springboot.job.timer.TimeJob
+#      cron: 0/5 * * * * ?
+#      sharding-total-count: 0
+
+spring:
+  application:
+    name: springboot-job
+
+elasticjob:
+  reg-center:
+    server-lists: localhost:2181
+    namespace: ${spring.application.name}
+  jobs:
+    #分片模式
+    my-sharding-job:
+      elastic-job-class: com.example.springboot.job.timer.TimeJob
+      cron: 0/5 * * * * ?
+      sharding-total-count: 3
+    # 单例模式
+    my-simple-job:
+      elastic-job-class: com.example.springboot.job.timer.singleJob
+      cron: 0/5 * * * * ?
+      sharding-total-count: 1
+
+server:
+  port: 8088

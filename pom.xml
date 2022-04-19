@@ -25,6 +25,7 @@
         <module>springboot-common</module>
         <module>springboot-thymeleaf</module>
         <module>springboot-freemarker</module>
+        <module>springboot-job</module>
     </modules>
 
     <properties>
