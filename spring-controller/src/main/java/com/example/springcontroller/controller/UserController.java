@@ -2,11 +2,14 @@ package com.example.springcontroller.controller;
 
 import com.example.springboot.model.bo.ResultMsg;
 import com.example.springboot.model.bo.User;
-import com.example.springboot.model.enums.HttpResultStatus;
+import com.example.springboot.model.enums.HttpResult;
+import com.example.springboot.model.enums.SystemResult;
+import com.example.springboot.model.exception.ApiException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,34 +27,42 @@ public class UserController {
 
     @ApiOperation(value = "查询所有用户")
     @GetMapping("/")
-    public ResultMsg<User> getAllUser(){
-        return ResultMsg.success(new ArrayList<User>(users.values()));
+    public List<User> getAllUser() {
+        List<User> list = new ArrayList<>();
+        list.addAll(users.values());
+        return list;
     }
 
     /**
      * 参数有效性验证
      * @param user
-     * @param bindingResult
      * @return
      */
     @ApiOperation(value = "新增用户")
     @PostMapping(value = "/")
-    public ResultMsg<String> insertUser(@RequestBody  @Valid User user, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            //校验结果以集合的形式返回，当然也可以获取单个。具体可以查看bindResult的API文档
-            List<FieldError> fieldErrorList = bindingResult.getFieldErrors();
-            //StringBuilder组装异常信息
-            StringBuilder builder = new StringBuilder();
-            //遍历拼装
-            fieldErrorList.forEach(error -> {
-                builder.append(error.getDefaultMessage() + lineSeparator);
-            });
-            builder.insert(0,"use @Valid n BingdingResult :" +lineSeparator);
-            return ResultMsg.fail(HttpResultStatus.F400.getStatus(), builder.toString());
-        }
+    public String insertUser1(@RequestBody @Validated User user){
         users.put(user.getId(),user);
-        return ResultMsg.success("成功");
+        return "新增成功";
     }
+
+    /**
+     * AOP 验证参数；统一返回格式
+     * @param user
+     * @return
+     */
+    @ApiOperation(value = "新增用户")
+    @PostMapping(value = "/addUser")
+    public User insertUser(@RequestBody @Validated User user){
+
+        if(user.getBirDay().after(new Date()))
+            throw new ApiException(SystemResult.AGE_ERROR.getCode(), "出生日期大于当前时间");
+        if(user.getName().length()>10)
+            throw new ApiException(SystemResult.NAME_ERROR.getCode(), "名字长度大于10");
+
+        users.put(user.getId(),user);
+        return user;
+    }
+
 
     @ApiOperation(value = "更新用户")
     @PutMapping("/{id}")
@@ -71,6 +82,12 @@ public class UserController {
     public ResultMsg<String> delUser(@PathVariable Long id){
         users.remove(id);
         return ResultMsg.success("成功");
+    }
+
+    @ApiOperation(value = "测试统一返回字符串格式")
+    @GetMapping("/test/{msg}")
+    public String testReturnString(@PathVariable String msg){
+        return msg;
     }
 
 }

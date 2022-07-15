@@ -23,9 +23,7 @@ public class User {
     @ApiModelProperty("用户名字")
     private String name;
 
-//    @NotNull
-//    @ApiModelProperty("用户年龄")
-//    private Integer age;
+
 
     @Email(message = "邮箱格式不对")
     @ApiModelProperty("邮箱地址")

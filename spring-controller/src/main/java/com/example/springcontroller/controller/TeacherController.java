@@ -2,7 +2,7 @@ package com.example.springcontroller.controller;
 
 import com.example.springboot.model.bo.ResultMsg;
 import com.example.springboot.model.bo.Teacher;
-import com.example.springboot.model.enums.HttpResultStatus;
+import com.example.springboot.model.enums.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.MediaType;
@@ -44,7 +44,7 @@ public class TeacherController {
                 builder.append(error.getDefaultMessage() + lineSeparator);
             });
             builder.insert(0, "use @Valid n BingdingResult :" + lineSeparator);
-            return ResultMsg.fail(HttpResultStatus.F400.getStatus(), builder.toString());
+            return ResultMsg.fail(HttpResult.S2001.getCode(), builder.toString());
         }
         teachers.put(teacher.getName(), teacher);
         return ResultMsg.success(teacher);
